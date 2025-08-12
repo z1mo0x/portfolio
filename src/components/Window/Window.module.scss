@@ -1,3 +1,5 @@
+@use '../../index.scss' as vars;
+
 .window {
     position: fixed;
     top: 50%;
@@ -10,7 +12,10 @@
 
 .window__header {
     display: flex;
+    user-select: none;
     justify-content: space-between;
+    // background: rgb(240, 240, 240);
+    border-bottom: 2px solid rgb(240, 240, 240);
 }
 
 .window__actions {
@@ -20,4 +25,41 @@
 .window__action {
     display: flex;
     padding: 5px 15px;
+}
+
+.window__file {
+    padding: 5px 10px;
+    display: flex;
+    gap: 5px;
+}
+
+.window__file img {
+    width: 20px;
+    -webkit-user-drag: none;
+    user-select: none;
+}
+
+.window__action {
+    display: flex;
+    transition: all .1s;
+    align-items: center;
+    user-select: none;
+    justify-content: center;
+}
+
+.window__action:hover {
+    background: vars.$icon-hover;
+}
+
+.window__close {
+    font-size: 14px;
+}
+
+.window__close:hover {
+    background: #e0252b;
+    color: white;
+}
+
+.window__info {
+    padding: 5px;
 }

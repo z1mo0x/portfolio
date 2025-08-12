@@ -95,7 +95,7 @@
 $select: #007ACC;
 $text: #fff;
 $menu-color: #252526;
-$icon-hover: #353535;
+$icon-hover: rgba(104, 104, 104, 0.3);
 $menu-bg: #2d2d2e;
 
 
@@ -109,7 +109,7 @@ html,
 body {
     height: 100vh;
     overflow: hidden;
-    font-family: 'Segoe UI';
+    font-family: 'Segoe UI', sans-serif;
 }
 
 .container {
@@ -144,7 +144,7 @@ body {
     flex-direction: column;
     gap: 5px;
     width: 100%;
-    max-width: 100px;
+    max-width: 80px;
     border: 1px solid transparent;
     height: max-content;
     padding: 5px 5px;
@@ -162,18 +162,19 @@ body {
 
 .desktop-icon__name {
     font-size: 12px;
-    text-shadow: 1px 1px 1px black;
+    text-shadow: 1px 1px 3px black;
     max-width: 100px;
     text-align: center;
     color: white;
 }
 
-.desktop-icon:hover {
-    background: rgba($color: white, $alpha: .1);
-    border: 1px solid rgba($color: white, $alpha: .3);
-}
 
 .desktop-icon.active {
     background: rgba($color: white, $alpha: .1);
     border: 1px solid rgba($color: white, $alpha: .3);
+}
+
+.desktop-icon:hover {
+    background: rgba($color: white, $alpha: .2);
+    border: 1px solid rgba($color: white, $alpha: .5);
 }

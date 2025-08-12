@@ -27,7 +27,7 @@ export default function TextDocument({ fileName }: TextDocumentProps) {
             </div>
 
             <Window title={fileName}>
-                123
+                В разработке...
             </Window>
         </>
 

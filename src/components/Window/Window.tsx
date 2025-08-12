@@ -1,5 +1,5 @@
-
 import styles from './Window.module.scss'
+import iconFile from '../../assets/img/notepad-icon.png'
 
 type WindowProps = {
     title: string,
@@ -11,15 +11,14 @@ function Window({ title, children }: WindowProps) {
         <div className={styles.window}>
             <div className={styles.window__header}>
                 <div className={styles.window__file}>
-                    {title}
+                    <img src={iconFile} alt="" />{title} - Блокнот
                 </div>
                 <div className={styles.window__actions}>
                     <div className={`${styles.window__minimize} ${styles.window__action}`}>
-                        {/* — */}
                         –
                     </div>
                     <div className={`${styles.window__expand} ${styles.window__action}`}>
-                        □
+                        ◻
                     </div>
                     <div className={`${styles.window__close} ${styles.window__action}`}>
                         ✕

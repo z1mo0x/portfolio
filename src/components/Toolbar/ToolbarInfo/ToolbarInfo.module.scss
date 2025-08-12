@@ -1,0 +1,50 @@
+@use '../../../index.scss' as vars;
+
+.toolbar__info {
+    color: white;
+    padding: 5px 5px;
+    height: 100%;
+    transition: all .1s;
+
+}
+
+.toolbar__time {
+    font-size: 12px;
+    user-select: none;
+    text-align: center;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.toolbar__date {
+    font-size: 12px;
+    user-select: none;
+    text-align: center;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+
+}
+
+
+
+.toolbar__info:hover {
+    background: vars.$icon-hover;
+}
+
+
+.toolbar__notifications {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid rgba($color: white, $alpha: .3);
+    margin-right: 5px;
+}
+
+
+.toolbar__notifications:hover {
+    background: vars.$icon-hover;
+}
+
+.toolbar__notifications img {
+    user-select: none;
+    filter: invert(1);
+    width: 40px;
+}

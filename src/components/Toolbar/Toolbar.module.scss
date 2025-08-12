@@ -1,7 +1,7 @@
 @use '../../index.scss' as vars;
 
 .toolbar {
-    background: vars.$menu-color;
+    background: rgba($color: vars.$menu-bg, $alpha: .8);
     backdrop-filter: blur(5px);
     height: 45px;
     bottom: 0;
@@ -15,7 +15,6 @@
     height: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
 }
 
 .menu:hover img {
@@ -31,6 +30,11 @@
 }
 
 .toolbar__left {
+    display: flex;
+    gap: 1px;
+}
+
+.toolbar__right {
     display: flex;
     gap: 1px;
 }

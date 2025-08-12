@@ -2,11 +2,15 @@ import { useState } from 'react';
 import Menu from '../Menu/Menu'
 import styles from './Toolbar.module.scss'
 import menuButton from "../../assets/img/menu-button.png"
+import ToolbarInfo from './ToolbarInfo/ToolbarInfo';
+import ToolbarActions from './ToolbarActions/ToolbarActions';
 
 type Props = {}
 
 function Header({ }: Props) {
     const [isOpen, setIsOpen] = useState<boolean>(false);
+
+
 
     function handleOpen() {
         if (!isOpen) {
@@ -16,6 +20,7 @@ function Header({ }: Props) {
             setIsOpen(false);
         }
     }
+
 
     return (
         <>
@@ -28,7 +33,8 @@ function Header({ }: Props) {
                         <div className={styles.toolbar__opened}></div>
                     </div>
                     <div className={styles.toolbar__right}>
-                        <div className={styles.toolbar__info}>123</div>
+                        <ToolbarActions />
+                        <ToolbarInfo />
                     </div>
                 </div>
             </div>
