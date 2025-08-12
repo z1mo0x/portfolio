@@ -16,6 +16,7 @@
     justify-content: space-between;
     // background: rgb(240, 240, 240);
     border-bottom: 2px solid rgb(240, 240, 240);
+    font-size: 14px;
 }
 
 .window__actions {
@@ -25,6 +26,7 @@
 .window__action {
     display: flex;
     padding: 5px 15px;
+    font-size: 16px;
 }
 
 .window__file {
