@@ -1,6 +1,6 @@
 import styles from './TextDocument.module.scss';
 import textDocumentIcon from '../../../assets/img/text-file.svg'
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import Window from '../../Window/Window';
 
 type TextDocumentProps = {
@@ -8,8 +8,6 @@ type TextDocumentProps = {
 }
 
 export default function TextDocument({ fileName }: TextDocumentProps) {
-
-    const [fileSelected, setFileSelected] = useState(null);
 
     const itemRef = useRef<HTMLDivElement>(null);
 
