@@ -1,0 +1,23 @@
+.window {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    height: 600px;
+    background: white;
+    transform: translate(-50%, -50%);
+}
+
+.window__header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.window__actions {
+    display: flex;
+}
+
+.window__action {
+    display: flex;
+    padding: 5px 15px;
+}

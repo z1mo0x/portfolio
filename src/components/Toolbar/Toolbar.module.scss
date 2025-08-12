@@ -1,0 +1,36 @@
+@use '../../index.scss' as vars;
+
+.toolbar {
+    background: vars.$menu-color;
+    backdrop-filter: blur(5px);
+    height: 45px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    position: absolute;
+    z-index: 1000;
+}
+
+.toolbar__wrapper {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu:hover img {
+    filter: brightness(.8) grayscale(0);
+}
+
+.menu img {
+    filter: grayscale(1) brightness(2);
+}
+
+.menu:active img {
+    filter: brightness(.7) grayscale(0);
+}
+
+.toolbar__left {
+    display: flex;
+    gap: 1px;
+}

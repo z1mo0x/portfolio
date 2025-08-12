@@ -1,5 +1,6 @@
-$main-bg: #08090A;
+@use './index.scss' as vars;
 
 body {
-    background: $main-bg;
+    background: rgb(18, 18, 18);
+
 }

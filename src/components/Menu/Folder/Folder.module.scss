@@ -1,0 +1,134 @@
+@use '../../../index' as vars;
+
+
+.menu__folder {
+    position: relative;
+}
+
+.menu__folder::before {
+    content: '';
+    background: url('../../../assets/img/arrow.png') center / contain no-repeat;
+    filter: invert(1);
+    width: 20px;
+    height: 10px;
+    position: absolute;
+    right: 5px;
+    top: 15px;
+    transition: all .1s;
+    transform: rotate(90deg);
+}
+
+.menu__wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 10px;
+    transition: all .1s;
+    user-select: none;
+    box-sizing: border-box;
+
+
+}
+
+.menu__wrap:hover {
+    background: vars.$icon-hover;
+}
+
+.menu__wrap:active .menu__icon {
+    transform: translateX(2px) scale(.99);
+}
+
+.menu__wrap:active .menu__name {
+    transform: translateX(2px) scale(.99);
+}
+
+.menu__folder .menu__wrap:active::before {
+    transform: translateX(-2px) translateY(-50%) rotate(90deg);
+}
+
+.menu__wrap {}
+
+.menu__icon {
+    transition: all .1s;
+}
+
+.menu__icon img {
+    width: 25px;
+}
+
+.menu__name {
+    color: white;
+    transition: all .1s;
+    font-size: 12px;
+}
+
+.folder__wrapper.active {
+    height: 100%;
+}
+
+.folder__wrapper.active {
+    .folder__item {
+        transform: unset;
+        pointer-events: all;
+        opacity: 1;
+        height: 100%;
+        padding: 5px 20px;
+    }
+}
+
+.folder__wrapper {
+    z-index: -1;
+    position: relative;
+}
+
+.folder__item {
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    gap: 10px;
+    padding: 0 20px;
+    height: 0;
+    overflow: hidden;
+    transition: all .1s;
+    pointer-events: none;
+    user-select: none;
+    box-sizing: border-box;
+
+    @for $i from 1 through 3 {
+        &:nth-child(#{$i}) {
+            transform: translateY(-25px * $i);
+            transition-delay: .015s*$i;
+            transition-timing-function: ease-out;
+        }
+    }
+}
+
+.folder__item:hover {
+    background: vars.$icon-hover;
+}
+
+.folder__item:active .menu__icon {
+    transform: translateX(2px) scale(.99);
+}
+
+.folder__item:active .menu__name {
+    transform: translateX(2px) scale(.99);
+}
+
+.folder__item:active::before {
+    transform: translateX(-2px) translateY(-50%) rotate(90deg);
+}
+
+.folder__icon {
+    transition: all .1s;
+}
+
+.folder__icon img {
+    width: 25px;
+}
+
+.folder__name {
+    color: white;
+    transition: all .1s;
+    font-size: 12px;
+}

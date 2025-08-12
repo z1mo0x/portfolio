@@ -1,0 +1,84 @@
+@use '../../index' as vars;
+
+
+
+.menu__wrapper {
+    position: absolute;
+    bottom: 0;
+    height: 68vh;
+    background: vars.$menu-bg;
+    display: grid;
+    left: 0;
+    grid-template-columns: 45px 1fr;
+    gap: 20px;
+    width: 320px;
+    bottom: -50px;
+    visibility: hidden;
+    transform: scaleY(.9);
+    transition: all .1s;
+    opacity: 0;
+    z-index: 5;
+    animation: menuClosed .1s forwards;
+}
+
+.sidebar {
+    height: calc(68vh - 45px);
+    position: sticky;
+    top: 0;
+}
+
+.menu__wrapper.active {
+    animation: menuActive .2s forwards;
+    visibility: visible;
+}
+
+@keyframes menuActive {
+    from {
+        bottom: -50px;
+        transform: scaleY(.9);
+        opacity: 0;
+    }
+
+    to {
+        bottom: 0;
+        transform: scaleY(1);
+        opacity: 1;
+    }
+}
+
+@keyframes menuClosed {
+    from {
+        bottom: 0;
+        transform: scaleY(1);
+        opacity: 1;
+    }
+
+    to {
+        bottom: -50px;
+        transform: scaleY(.9);
+        opacity: 0;
+    }
+
+}
+
+.menu__items {
+    padding: 10px 15px;
+    padding-left: 0;
+    height: calc(68vh - 45px);
+    overflow: auto;
+}
+
+.menu__wrapper.active .menu__items {
+    bottom: 0px;
+    animation: itemsSlideUp .3s forwards;
+}
+
+@keyframes itemsSlideUp {
+    from {
+        transform: translateY(50px);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}

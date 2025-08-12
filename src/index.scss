@@ -1,0 +1,179 @@
+// @font-face {
+//     font-family: 'Chakra Petch';
+//     src: url('ChakraPetch-LightItalic.ttf') format('truetype');
+//     font-weight: 300;
+//     font-style: italic;
+//     font-display: swap;
+// }
+
+// @font-face {
+//     font-family: 'Chakra Petch';
+//     src: url('ChakraPetch-Italic.ttf') format('truetype');
+//     font-weight: normal;
+//     font-style: italic;
+//     font-display: swap;
+// }
+
+// @font-face {
+//     font-family: 'Chakra Petch';
+//     src: url('ChakraPetch-Bold.ttf') format('truetype');
+//     font-weight: bold;
+//     font-style: normal;
+//     font-display: swap;
+// }
+
+// @font-face {
+//     font-family: 'Chakra Petch';
+//     src: url('ChakraPetch-Light.ttf') format('truetype');
+//     font-weight: 300;
+//     font-style: normal;
+//     font-display: swap;
+// }
+
+// @font-face {
+//     font-family: 'Chakra Petch';
+//     src: url('ChakraPetch-BoldItalic.ttf') format('truetype');
+//     font-weight: bold;
+//     font-style: italic;
+//     font-display: swap;
+// }
+
+// @font-face {
+//     font-family: 'Chakra Petch';
+//     src: url('ChakraPetch-MediumItalic.ttf') format('truetype');
+//     font-weight: 500;
+//     font-style: italic;
+//     font-display: swap;
+// }
+
+// @font-face {
+//     font-family: 'Chakra Petch';
+//     src: url('ChakraPetch-Regular.ttf') format('truetype');
+//     font-weight: normal;
+//     font-style: normal;
+//     font-display: swap;
+// }
+
+// @font-face {
+//     font-family: 'Chakra Petch';
+//     src: url('ChakraPetch-SemiBoldItalic.ttf') format('truetype');
+//     font-weight: 600;
+//     font-style: italic;
+//     font-display: swap;
+// }
+
+// @font-face {
+//     font-family: 'Chakra Petch';
+//     src: url('ChakraPetch-SemiBold.ttf') format('truetype');
+//     font-weight: 600;
+//     font-style: normal;
+//     font-display: swap;
+// }
+
+// @font-face {
+//     font-family: 'Chakra Petch';
+//     src: url('ChakraPetch-Medium.ttf') format('truetype');
+//     font-weight: 500;
+//     font-style: normal;
+//     font-display: swap;
+// }
+
+// @font-face {
+//     font-family: 'Rubik Glitch';
+//     src: url('RubikGlitch-Regular.ttf') format('truetype');
+//     font-weight: normal;
+//     font-style: normal;
+//     font-display: swap;
+// }
+
+// $main-bg: #08090A;
+// $gray: #575A5E;
+// $light: rgba(167, 162, 169, 0.644);
+// $dark: #222823;
+// $white: #F4F7F5;
+
+$select: #007ACC;
+$text: #fff;
+$menu-color: #252526;
+$icon-hover: #353535;
+$menu-bg: #2d2d2e;
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Segoe UI';
+}
+
+.container {
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.icon {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 100%;
+    transition: all .1s;
+    position: relative;
+    z-index: 10;
+}
+
+.icon:hover {
+    background: $icon-hover;
+    user-select: none;
+}
+
+.icon img {
+    user-select: none;
+    transition: all .1s;
+    width: 25px;
+}
+
+.desktop-icon {
+    display: flex;
+    user-select: none;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+    max-width: 100px;
+    border: 1px solid transparent;
+    height: max-content;
+    padding: 5px 5px;
+}
+
+.desktop-icon__image img {
+    height: 60px;
+    object-fit: contain;
+    max-width: 100%;
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    user-select: none;
+}
+
+.desktop-icon__name {
+    font-size: 12px;
+    text-shadow: 1px 1px 1px black;
+    max-width: 100px;
+    text-align: center;
+    color: white;
+}
+
+.desktop-icon:hover {
+    background: rgba($color: white, $alpha: .1);
+    border: 1px solid rgba($color: white, $alpha: .3);
+}
+
+.desktop-icon.active {
+    background: rgba($color: white, $alpha: .1);
+    border: 1px solid rgba($color: white, $alpha: .3);
+}
