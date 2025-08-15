@@ -11,7 +11,7 @@ type Props = {}
 function Header({ }: Props) {
 
     const [isOpen, setIsOpen] = useState<boolean>(false);
-    const menuRef = useRef<HTMLDivElement>(null);
+    const menuRef = useRef<HTMLDivElement | null>(null);
 
     function handleOpen() {
         setIsOpen(prev => !prev);
