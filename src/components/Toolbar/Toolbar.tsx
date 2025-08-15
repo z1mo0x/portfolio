@@ -36,7 +36,6 @@ function Header({ }: Props) {
                 </div>
             </div>
             <Menu ref={menuRef} open={isOpen} />
-
         </>
     )
 }

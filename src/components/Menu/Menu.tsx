@@ -3,7 +3,7 @@ import FolderItems from './Folder/FolderItems';
 
 type Props = {
     open: boolean;
-    ref: React.RefObject<HTMLDivElement>;
+    ref: React.RefObject<HTMLDivElement | null>;
 }
 
 function Menu({ open, ref }: Props) {
