@@ -1,3 +1,4 @@
+import NetworkAction from './NetworkAction/NetworkAction'
 import SoundAction from './SoundAction/SoundAction'
 import styles from './ToolbarActions.module.scss'
 
@@ -7,7 +8,7 @@ function ToolbarActions({ }: ToolbarActionsProps) {
     return (
         <div className={styles.actions}>
             <SoundAction />
-            <div className={styles.actions__network}></div>
+            <NetworkAction />
             <div className={styles.actions__language}></div>
         </div>
     )

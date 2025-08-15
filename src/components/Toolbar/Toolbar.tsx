@@ -1,26 +1,23 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Menu from '../Menu/Menu'
 import styles from './Toolbar.module.scss'
 import menuButton from "../../assets/img/menu-button.png"
 import ToolbarInfo from './ToolbarInfo/ToolbarInfo';
 import ToolbarActions from './ToolbarActions/ToolbarActions';
+import { useClickOutside } from '../../hooks/useClickOutside';
 
 type Props = {}
 
 function Header({ }: Props) {
+
     const [isOpen, setIsOpen] = useState<boolean>(false);
-
-
+    const menuRef = useRef<HTMLDivElement>(null);
 
     function handleOpen() {
-        if (!isOpen) {
-            setIsOpen(true);
-        }
-        else {
-            setIsOpen(false);
-        }
+        setIsOpen(prev => !prev);
     }
 
+    useClickOutside(menuRef, () => { setIsOpen(false) })
 
     return (
         <>
@@ -38,7 +35,7 @@ function Header({ }: Props) {
                     </div>
                 </div>
             </div>
-            <Menu open={isOpen} />
+            <Menu ref={menuRef} open={isOpen} />
 
         </>
     )

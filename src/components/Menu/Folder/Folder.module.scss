@@ -90,6 +90,7 @@
     height: 0;
     overflow: hidden;
     transition: all .1s;
+    transition-timing-function: linear;
     pointer-events: none;
     user-select: none;
     box-sizing: border-box;
@@ -98,7 +99,6 @@
         &:nth-child(#{$i}) {
             transform: translateY(-25px * $i);
             transition-delay: .015s*$i;
-            transition-timing-function: ease-out;
         }
     }
 }

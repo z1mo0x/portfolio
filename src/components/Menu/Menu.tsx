@@ -3,13 +3,14 @@ import FolderItems from './Folder/FolderItems';
 
 type Props = {
     open: boolean;
+    ref: React.RefObject<HTMLDivElement>;
 }
 
-function Menu({ open }: Props) {
+function Menu({ open, ref }: Props) {
 
     return (
         <>
-            <div className={`${styles.menu__wrapper} ${open ? styles.active : ''}`}>
+            <div ref={ref} className={`${styles.menu__wrapper} ${open ? styles.active : ''}`}>
                 <div className={`${styles.menu__sidebar} ${styles.sidebar}`}>
                     <div className={styles.sidebar__wrapper}>
                     </div>
