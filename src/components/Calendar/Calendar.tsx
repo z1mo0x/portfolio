@@ -7,7 +7,6 @@ import calendarPrev from '../../assets/img/calendar-prev.png'
 import { Swiper, SwiperSlide, type SwiperRef } from 'swiper/react';
 import 'swiper/swiper-bundle.css'; // Импортируйте стили
 import { NavLink } from 'react-router-dom';
-import type { MousewheelEvents } from 'swiper/types';
 
 type CalendarProps = {
     month: number,
