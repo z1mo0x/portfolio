@@ -4,7 +4,7 @@ import styles from './Toolbar.module.scss'
 import menuButton from "../../assets/img/menu-button.png"
 import ToolbarInfo from './ToolbarInfo/ToolbarInfo';
 import ToolbarActions from './ToolbarActions/ToolbarActions';
-import { useClickOutside } from '../../hooks/useClickOutside';
+// import { useClickOutside } from '../../hooks/useClickOutside';
 
 type Props = {}
 
@@ -17,7 +17,7 @@ function Header({ }: Props) {
         setIsOpen(prev => !prev);
     }
 
-    useClickOutside(menuRef, () => { setIsOpen(false) })
+    // useClickOutside(menuRef, () => { setIsOpen(false) })
 
     return (
         <>

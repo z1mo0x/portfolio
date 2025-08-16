@@ -1,3 +1,5 @@
+@use '../../../../index.scss' as vars;
+
 .internet__icon {
     padding: 0 2px;
     width: max-content;
@@ -5,4 +7,58 @@
 
 .internet__icon img {
     filter: invert(1);
+}
+
+.network__items {
+    display: grid;
+    gap: 10px;
+}
+
+.network__wrapper {
+    padding-block: 10px;
+}
+
+.network__icon img {
+    filter: invert(1);
+}
+
+.network__item {
+    color: vars.$text;
+    display: flex;
+    gap: 10px;
+    padding: 5px 10px;
+    transition: all .1s;
+}
+
+.network__item:hover {
+    background: vars.$icon-hover;
+}
+
+.network__icon img {
+    width: 35px;
+}
+
+.network__name {
+    font-size: 14px;
+}
+
+.network__status {
+    opacity: .7;
+    font-size: 16px;
+}
+
+.network__setting {
+    margin-top: 10px;
+    padding: 5px 10px;
+}
+
+.network__link {
+    color: vars.$text-blue;
+    text-decoration: none;
+}
+
+.network__descr {
+    margin-top: 3px;
+    font-size: 13px;
+    color: rgba($color: vars.$text, $alpha: .55);
 }

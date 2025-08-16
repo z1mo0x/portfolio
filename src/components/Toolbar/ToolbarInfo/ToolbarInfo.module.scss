@@ -1,7 +1,7 @@
 @use '../../../index.scss' as vars;
 
 .toolbar__info {
-    color: white;
+    color: vars.$text;
     padding: 5px 5px;
     height: 100%;
     transition: all .1s;
@@ -20,15 +20,11 @@
     user-select: none;
     text-align: center;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
-
 }
-
-
 
 .toolbar__info:hover {
     background: vars.$icon-hover;
 }
-
 
 .toolbar__notifications {
     display: flex;
@@ -38,7 +34,6 @@
     margin-right: 5px;
 }
 
-
 .toolbar__notifications:hover {
     background: vars.$icon-hover;
 }
@@ -47,4 +42,22 @@
     user-select: none;
     filter: invert(1);
     width: 40px;
+}
+
+.time {
+    border-bottom: 1px solid vars.$border-color;
+}
+
+.time__wrapper {
+    padding: 10px 20px;
+}
+
+.time__clocks {
+    color: vars.$text;
+    font-size: 50px;
+    font-weight: 300;
+}
+
+.date {
+    color: vars.$text-blue;
 }

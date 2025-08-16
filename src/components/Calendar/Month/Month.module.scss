@@ -1,0 +1,30 @@
+@use '../../../index.scss' as vars;
+
+.month {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+    margin-top: 10px;
+}
+
+.month__day {
+    width: 100%;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    border: 3px solid transparent;
+    outline: 3px solid transparent;
+    color: vars.$text;
+    font-weight: 300;
+}
+
+.month__day:hover {
+    border-color: vars.$icon-hover;
+}
+
+.month__day.active {
+    outline-color: #007ACC;
+    border-color: black;
+    font-weight: 500;
+    background: #007ACC;
+}

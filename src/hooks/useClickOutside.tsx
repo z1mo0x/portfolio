@@ -1,12 +1,13 @@
 import { useEffect } from "react";
-import styles from '../components/Desktop/Desktop.module.scss'
+// import styles from '../components/Desktop/Desktop.module.scss'
 
 export function useClickOutside(
     ref: React.RefObject<HTMLDivElement | null>,
     handler: () => void
 ) {
     useEffect(() => {
-        const desktop = document.querySelector<HTMLDivElement>(`.${styles.desktop}`);
+        // const desktop = document.querySelector<HTMLDivElement>(`.${styles.desktop}`);
+        const desktop = document;
 
         function handleClickOutside(event: MouseEvent) {
             if (ref.current && !ref.current.contains(event.target as Node)) {
