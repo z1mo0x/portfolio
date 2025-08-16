@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import styles from './Month.module.scss';
 import months from '../../../assets/scripts/months';
-import { UNSAFE_WithHydrateFallbackProps } from 'react-router-dom';
 
 type MonthProps = {
     days: number[],

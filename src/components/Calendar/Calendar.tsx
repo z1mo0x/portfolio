@@ -29,11 +29,11 @@ function Calendar({ month }: CalendarProps) {
             sliderRef.current.swiper.activeIndex = currentMonth;
         }
         setCurrentMonthName(months[currentMonth].name)
-        updateDaysByMonth(currentYear, currentMonth)
+        updateDaysByMonth(currentYear)
     }, [currentMonth, currentYear])
 
 
-    function updateDaysByMonth(year: number, month: number) {
+    function updateDaysByMonth(year: number) {
         let result: { [key: string]: number[] } = {};
         for (let m = 0; m < 12; m++) {
             const daysCount: number = new Date(year, m + 1, 0).getDate();
