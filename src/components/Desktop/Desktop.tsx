@@ -1,7 +1,7 @@
 import TextDocument from '../IconsDesktop/TextDocument/TextDocument';
 import styles from './Desktop.module.scss';
 import bg from '../../assets/img/bg.jpg';
-import { useState } from 'react';
+// import { useState } from 'react';
 
 type Props = {}
 
