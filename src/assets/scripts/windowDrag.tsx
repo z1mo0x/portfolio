@@ -9,8 +9,8 @@ export default function handleMouseDown(event: React.MouseEvent<HTMLDivElement>,
 
         const target = event.currentTarget.closest(`.${window}`) as HTMLElement;
 
-        const offsetX = event.clientX - target.getBoundingClientRect().left;
-        const offsetY = event.clientY - target.getBoundingClientRect().top;
+        // const offsetX = event.clientX - target.getBoundingClientRect().left;
+        // const offsetY = event.clientY - target.getBoundingClientRect().top;
 
         const handleMouseMove = (event: MouseEvent) => {
             target.style.position = 'absolute';

@@ -4,7 +4,7 @@ type ToolbarPopupProps = {
     isOpen: boolean,
     children: React.ReactNode,
     ref: React.RefObject<HTMLDivElement | null>,
-    className: string,
+    className?: string,
 }
 
 function ToolbarPopup({ isOpen, className, children, ref }: ToolbarPopupProps) {

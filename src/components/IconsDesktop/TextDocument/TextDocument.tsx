@@ -2,7 +2,7 @@ import styles from './TextDocument.module.scss';
 import textDocumentIcon from '../../../assets/img/text-file.svg'
 import { useEffect, useRef, useState } from 'react';
 import Notepad from '../../Notepad/Notepad';
-import { useClickOutside } from '../../../hooks/useClickOutside';
+// import { useClickOutside } from '../../../hooks/useClickOutside';
 
 type TextDocumentProps = {
     fileName: string,
@@ -12,7 +12,7 @@ type TextDocumentProps = {
 
 export default function TextDocument({ fileName, text, baseActive }: TextDocumentProps) {
 
-    const [selected, setSelected] = useState<HTMLDivElement | null>(null);
+    // const [selected, setSelected] = useState<HTMLDivElement | null>(null);
     const [openedItems, setOpenedItems] = useState<Set<HTMLDivElement | null>>(new Set());
     const [isOpened, setIsOpened] = useState<boolean>(false);
     const itemRef = useRef<HTMLDivElement>(null);
@@ -50,7 +50,7 @@ export default function TextDocument({ fileName, text, baseActive }: TextDocumen
 
     function handleClick() {
         itemRef.current?.classList.add(`active`);
-        setSelected(itemRef.current)
+        // setSelected(itemRef.current)
     }
 
     return (

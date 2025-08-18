@@ -14,7 +14,7 @@ interface Document {
 
 function Desktop({ }: Props) {
 
-    const [selected, setSelected] = useState()
+    // const [selected, setSelected] = useState()
 
     const documents: Document[] = [
         {
@@ -31,7 +31,7 @@ function Desktop({ }: Props) {
 Что предстоит сделать в ближайшее время:
 1. Отображение открытых файлов в панели задач
 2. Resize окон
-3. Подключить БД для файлов, чтобы их можно было менять добавлять и так далее
+3. Подключить БД для файлов, чтобы их можно было менять добавлять и так далее (Redux + Redux Toolkit) для управления данными
 4. Добавить функцию смены обоев
 
 Самое крупное - создать окно настроек
