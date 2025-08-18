@@ -7,12 +7,15 @@ import Notepad from '../../Notepad/Notepad';
 type TextDocumentProps = {
     fileName: string,
     text: string,
-    baseActive: boolean
+    baseActive: boolean,
+    selected: HTMLDivElement | null,
+    setSelected: React.Dispatch<React.SetStateAction<HTMLDivElement | null>>,
+    zIndex: number,
+    setZIndex: React.Dispatch<React.SetStateAction<number>>,
 }
 
-export default function TextDocument({ fileName, text, baseActive }: TextDocumentProps) {
+export default function TextDocument({ fileName, text, baseActive, selected, setSelected, zIndex, setZIndex }: TextDocumentProps) {
 
-    // const [selected, setSelected] = useState<HTMLDivElement | null>(null);
     const [openedItems, setOpenedItems] = useState<Set<HTMLDivElement | null>>(new Set());
     const [isOpened, setIsOpened] = useState<boolean>(false);
     const itemRef = useRef<HTMLDivElement>(null);
@@ -32,6 +35,7 @@ export default function TextDocument({ fileName, text, baseActive }: TextDocumen
     useEffect(() => {
         const handleDoubleClick = () => {
             if (itemRef.current) {
+                // setZIndex(prev => prev + 1)
                 setOpenedItems(prevOpened => {
                     const newOpened = new Set(prevOpened);
                     newOpened.add(itemRef.current);
@@ -49,8 +53,12 @@ export default function TextDocument({ fileName, text, baseActive }: TextDocumen
     }, [itemRef])
 
     function handleClick() {
-        itemRef.current?.classList.add(`active`);
-        // setSelected(itemRef.current)
+        if (selected) {
+            itemRef.current?.classList.add("active");
+            selected.classList.remove('active')
+            setSelected(itemRef.current)
+            console.log(selected);
+        }
     }
 
     return (
@@ -64,7 +72,7 @@ export default function TextDocument({ fileName, text, baseActive }: TextDocumen
                 </div>
             </div>
 
-            <Notepad isOpen={isOpened} setIsOpen={setIsOpened} title={fileName}>
+            <Notepad isOpen={isOpened} setIsOpen={setIsOpened} zIndex={zIndex} setZIndex={setZIndex} title={fileName}>
                 {text}
             </Notepad>
         </>

@@ -14,7 +14,7 @@ export default function handleMouseDown(event: React.MouseEvent<HTMLDivElement>,
 
         const handleMouseMove = (event: MouseEvent) => {
             target.style.position = 'absolute';
-            target.style.zIndex = '21';
+            // target.style.zIndex = '21';
             target.style.left = `${event.clientX}px`;
             target.style.top = `${event.clientY}px`;
         };
@@ -22,7 +22,7 @@ export default function handleMouseDown(event: React.MouseEvent<HTMLDivElement>,
         const handleMouseUp = () => {
             document.removeEventListener('mousemove', handleMouseMove);
             document.removeEventListener('mouseup', handleMouseUp);
-            target.style.zIndex = '20';
+            // target.style.zIndex = '20';
         };
 
         document.addEventListener('mousemove', handleMouseMove);
@@ -37,7 +37,7 @@ export default function handleMouseDown(event: React.MouseEvent<HTMLDivElement>,
 
         const handleMouseMove = (event: MouseEvent) => {
             target.style.position = 'absolute';
-            target.style.zIndex = '21';
+            // target.style.zIndex = '21';
             target.style.left = `${event.clientX - offsetX}px`;
             target.style.top = `${event.clientY - offsetY}px`;
         };
@@ -45,7 +45,7 @@ export default function handleMouseDown(event: React.MouseEvent<HTMLDivElement>,
         const handleMouseUp = () => {
             document.removeEventListener('mousemove', handleMouseMove);
             document.removeEventListener('mouseup', handleMouseUp);
-            target.style.zIndex = '20';
+            // target.style.zIndex = '20';
         };
 
         document.addEventListener('mousemove', handleMouseMove);

@@ -1,23 +1,35 @@
 import styles from './Notepad.module.scss'
 import iconFile from '../../assets/img/notepad-icon.png'
 import handleMouseDown from '../../assets/scripts/windowDrag';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 type WindowProps = {
     title: string,
     children: React.ReactNode,
     isOpen: boolean,
     setIsOpen: (isOpen: boolean) => void,
+    zIndex: number,
+    setZIndex: React.Dispatch<React.SetStateAction<number>>,
 }
 
-function Notepad({ title, children, isOpen, setIsOpen }: WindowProps) {
+function Notepad({ title, children, isOpen, setIsOpen, zIndex, setZIndex }: WindowProps) {
 
     const [isExpanded, setIsExpanded] = useState(false);
+    const notepadRef = useRef<HTMLDivElement | null>(null);
+    const [notepadSelected, setNotepadSelected] = useState<HTMLDivElement | null>(null);
+
+    useEffect(() => {
+        if (notepadRef.current !== null) {
+            setNotepadSelected(notepadRef.current);
+            setZIndex(prev => prev + 1)
+            notepadRef.current.style.zIndex = `${zIndex++}`;
+            console.log(notepadSelected);
+        }
+    }, [isOpen])
 
 
     return (
-        <div className={`${isOpen ? styles.opened : ''} ${isExpanded ? styles.expanded : ''} ${styles.overlay}`}
-        >
+        <div ref={notepadRef} className={`${isOpen ? styles.opened : ''} ${isExpanded ? styles.expanded : ''} ${styles.overlay}`}>
             <div className={`${styles.window}`}>
                 <div className={styles.window__header} onMouseDown={(e) => { handleMouseDown(e, `${styles.overlay}`, setIsExpanded, isExpanded) }} >
                     <div className={styles.window__file}>
@@ -52,7 +64,7 @@ function Notepad({ title, children, isOpen, setIsOpen }: WindowProps) {
                 <div className={styles.resize__bottom}></div>
                 {/* ползунки для resize */}
             </div>
-        </div>
+        </div >
     )
 }
 
