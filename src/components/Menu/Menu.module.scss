@@ -6,10 +6,11 @@
     position: absolute;
     bottom: 0;
     height: 68vh;
-    background: rgba($color: vars.$menu-bg, $alpha: .9);
+    background: vars.$menu-bg;
     display: grid;
     left: 0;
     grid-template-columns: 45px 1fr;
+    backdrop-filter: blur(10px);
     gap: 20px;
     width: 320px;
     bottom: -50px;

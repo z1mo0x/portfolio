@@ -54,10 +54,16 @@
 
 .time__clocks {
     color: vars.$text;
-    font-size: 50px;
+    font-size: 40px;
     font-weight: 300;
 }
 
 .date {
     color: vars.$text-blue;
+    font-weight: 300;
+    margin-top: 5px;
+}
+
+.calendar__popup {
+    width: 360px !important;
 }

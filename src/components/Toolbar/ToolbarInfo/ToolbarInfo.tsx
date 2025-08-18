@@ -73,7 +73,7 @@ function ToolbarInfo({ }: Props) {
                 <img src={messageIcon} alt="" />
             </div>
 
-            <ToolbarPopup isOpen={calendarOpen} ref={calendarRef}>
+            <ToolbarPopup className={styles.calendar__popup} isOpen={calendarOpen} ref={calendarRef}>
                 <div className={styles.time}>
                     <div className={styles.time__wrapper}>
                         <div className={styles.time__clocks}>{fullTime}</div>

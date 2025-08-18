@@ -5,32 +5,25 @@ import months from '../../../assets/scripts/months';
 type MonthProps = {
     days: number[],
     name: string,
+    activeDay: number | undefined,
+    setActiveDay: (day: number) => void,
 }
 
-function Month({ days, name }: MonthProps) {
+function Month({ days, name, activeDay, setActiveDay }: MonthProps) {
 
     const date = new Date();
     const todayDay = date.getDate();
     const todayMonth = date.getMonth();
-    const [activeDay, setActiveDay] = useState<number>();
+    const [today, setToday] = useState<number>();
 
 
     useEffect(() => {
         days.forEach(day => {
             if (day === todayDay && months[todayMonth].name === name) {
-                setActiveDay(day);
+                setToday(day);
             }
         })
     }, [])
-
-
-    // function handleHoverDays() {
-    //     window.addEventListener("mousemove", (e) => {
-    //         const mouseX = e.clientX;
-    //         const mouseY = e.clientY;
-    //     })
-    // }
-
 
     return (
         <>
@@ -39,7 +32,11 @@ function Month({ days, name }: MonthProps) {
                     days.map((day, i) => (
                         <div
                             key={i}
-                            className={`${styles.month__day} ${activeDay === day ? styles.active : ''}`}
+                            className={
+                                `${styles.month__day}
+                                 ${today === day ? styles.today : ''}
+                                 ${activeDay === day ? styles.active : ''}
+                                 `}
                             onClick={() => { setActiveDay(day) }}
                         >{day}</div>
                     ))

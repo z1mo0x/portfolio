@@ -21,6 +21,7 @@ function Calendar({ month }: CalendarProps) {
     const monthNames: string[] = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь',
         'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
     const [daysByMonth, setDaysByMonth] = useState<{ [key: string]: number[] }>({});
+    const [activeDay, setActiveDay] = useState<number>();
     const sliderRef = useRef<SwiperRef | null>(null);
 
 
@@ -112,7 +113,7 @@ function Calendar({ month }: CalendarProps) {
                         >
                             {Object.entries(daysByMonth).map(([monthName, day]) => (
                                 <SwiperSlide key={monthName} className={styles.slider__slide}>
-                                    <Month days={day} name={monthName} />
+                                    <Month days={day} name={monthName} activeDay={activeDay} setActiveDay={setActiveDay} />
                                 </SwiperSlide>
                             ))}
                         </Swiper>

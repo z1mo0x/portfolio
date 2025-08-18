@@ -1,5 +1,8 @@
 @use '../../index.scss' as vars;
 
+$item: 40px;
+
+
 .calendar {
     padding: 10px 20px;
     overflow: hidden;
@@ -52,11 +55,13 @@
 }
 
 .slider__wrap {
-    height: calc((50px * 5) + 20px);
+    height: calc(($item * 5) + 20px);
 }
 
 .calendar__settings {
+    margin-top: 5px;
     color: vars.$text-blue;
     text-decoration: none;
     font-size: 14px;
+    display: block;
 }
