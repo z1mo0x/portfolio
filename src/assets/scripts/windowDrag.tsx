@@ -20,13 +20,13 @@ export default function handleMouseDown(event: React.MouseEvent<HTMLDivElement>,
         };
 
         const handleMouseUp = () => {
-            document.removeEventListener('mousemove', handleMouseMove);
-            document.removeEventListener('mouseup', handleMouseUp);
+            target.removeEventListener('mousemove', handleMouseMove);
+            target.removeEventListener('mouseup', handleMouseUp);
             // target.style.zIndex = '20';
         };
 
-        document.addEventListener('mousemove', handleMouseMove);
-        document.addEventListener('mouseup', handleMouseUp);
+        target.addEventListener('mousemove', handleMouseMove);
+        target.addEventListener('mouseup', handleMouseUp);
     }
 
     else {
@@ -43,12 +43,12 @@ export default function handleMouseDown(event: React.MouseEvent<HTMLDivElement>,
         };
 
         const handleMouseUp = () => {
-            document.removeEventListener('mousemove', handleMouseMove);
-            document.removeEventListener('mouseup', handleMouseUp);
+            target.removeEventListener('mousemove', handleMouseMove);
+            target.removeEventListener('mouseup', handleMouseUp);
             // target.style.zIndex = '20';
         };
 
-        document.addEventListener('mousemove', handleMouseMove);
-        document.addEventListener('mouseup', handleMouseUp);
+        target.addEventListener('mousemove', handleMouseMove);
+        target.addEventListener('mouseup', handleMouseUp);
     }
 }

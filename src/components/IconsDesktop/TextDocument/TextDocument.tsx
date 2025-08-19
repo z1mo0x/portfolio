@@ -2,12 +2,13 @@ import styles from './TextDocument.module.scss';
 import textDocumentIcon from '../../../assets/img/text-file.svg'
 import { useEffect, useRef, useState } from 'react';
 import Notepad from '../../Notepad/Notepad';
+import useOpenFile from '../../../hooks/openFile';
 // import { useClickOutside } from '../../../hooks/useClickOutside';
 
 type TextDocumentProps = {
     fileName: string,
     text: string,
-    baseActive: boolean,
+    baseActive: boolean | undefined,
     selected: HTMLDivElement | null,
     setSelected: React.Dispatch<React.SetStateAction<HTMLDivElement | null>>,
     zIndex: number,
@@ -32,25 +33,7 @@ export default function TextDocument({ fileName, text, baseActive, selected, set
         }
     }, [openedItems])
 
-    useEffect(() => {
-        const handleDoubleClick = () => {
-            if (itemRef.current) {
-                // setZIndex(prev => prev + 1)
-                setOpenedItems(prevOpened => {
-                    const newOpened = new Set(prevOpened);
-                    newOpened.add(itemRef.current);
-                    return newOpened;
-                });
-            }
-        };
-
-        const currentRef = itemRef.current;
-        currentRef?.addEventListener('dblclick', handleDoubleClick);
-
-        return () => {
-            currentRef?.removeEventListener('dblclick', handleDoubleClick);
-        };
-    }, [itemRef])
+    useOpenFile(itemRef, setOpenedItems)
 
     function handleClick() {
         if (selected) {

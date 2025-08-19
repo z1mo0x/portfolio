@@ -1,4 +1,7 @@
 .actions {
     display: flex;
     gap: 1px;
+    user-select: none;
+    z-index: 5;
+    position: relative;
 }

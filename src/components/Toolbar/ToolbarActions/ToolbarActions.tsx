@@ -6,7 +6,7 @@ type ToolbarActionsProps = {}
 
 function ToolbarActions({ }: ToolbarActionsProps) {
     return (
-        <div className={styles.actions}>
+        <div className={styles.actions} onMouseDown={(e) => { e.stopPropagation() }}>
             <SoundAction />
             <NetworkAction />
             <div className={styles.actions__language}></div>
