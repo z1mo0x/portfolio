@@ -1,10 +1,9 @@
 import TextDocument from '../IconsDesktop/TextDocument/TextDocument';
 import styles from './Desktop.module.scss';
 import bg from '../../assets/img/bg.jpg';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import type { DocumentState } from '../../store';
-// import { useState } from 'react';
 
 type DesktopProps = {}
 

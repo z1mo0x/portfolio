@@ -17,11 +17,11 @@ function Notepad({ title, children, isOpen, setIsOpen, zIndex, setZIndex }: Wind
 
     const [isExpanded, setIsExpanded] = useState(false);
     const notepadRef = useRef<HTMLDivElement | null>(null);
-    const [notepadSelected, setNotepadSelected] = useState<HTMLDivElement | null>(null);
+    // const [notepadSelected, setNotepadSelected] = useState<HTMLDivElement | null>(null);
 
     useEffect(() => {
         if (notepadRef.current !== null) {
-            setNotepadSelected(notepadRef.current);
+            // setNotepadSelected(notepadRef.current);
             setZIndex(prev => prev + 1)
             notepadRef.current.style.zIndex = `${zIndex}`
         }

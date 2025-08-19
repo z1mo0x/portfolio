@@ -3,8 +3,6 @@ export default function handleMouseDown(event: React.MouseEvent<HTMLDivElement>,
 ) {
 
     if (isExpanded) {
-        console.log(123);
-
         setIsExpanded(false)
 
         const target = event.currentTarget.closest(`.${window}`) as HTMLElement;

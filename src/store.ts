@@ -1,4 +1,4 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import { documentsDefault } from "./assets/scripts/documentsItems";
 
 export interface DocumentItem {
@@ -14,56 +14,39 @@ export interface DocumentState {
     error: null | string;
 }
 
-// interface DocumentAction {
-//     type: string;
-//     payload?: any;
-// }
-
-
-enum documentActions {
-    FETCH_DOCUMENTS = "FETCH_DOCUMENTS",
-    FETCH_DOCUMENTS_SUCCESS = "FETCH_DOCUMENTS_SUCCESS",
-    FETCH_DOCUMENTS_ERROR = "FETCH_DOCUMENTS_ERROR"
-}
-
-interface FetchDocumentsAction {
-    type: documentActions.FETCH_DOCUMENTS;
-}
-
-interface FetchDocumentsSuccessAction {
-    type: documentActions.FETCH_DOCUMENTS_SUCCESS;
-    payload: DocumentItem[];
-}
-
-interface FetchDocumentsErrorAction {
-    type: documentActions.FETCH_DOCUMENTS_ERROR;
-    payload: string;
-}
-
-type DocumentAction = FetchDocumentsAction | FetchDocumentsSuccessAction | FetchDocumentsErrorAction;
-
 const initialState: DocumentState = {
     documents: documentsDefault,
     loading: false,
     error: null
-}
+};
 
-export function documentsReducer(state = initialState, action: DocumentAction): DocumentState {
-    switch (action.type) {
-        case documentActions.FETCH_DOCUMENTS:
-            return { documents: [], loading: true, error: null };
-        case documentActions.FETCH_DOCUMENTS_SUCCESS:
-            return { documents: action.payload, loading: false, error: null };
-        case documentActions.FETCH_DOCUMENTS_ERROR:
-            return { documents: [], loading: false, error: action.payload };
-        default:
-            return state;
+// Создаем срез с помощью createSlice
+const documentsSlice = createSlice({
+    name: 'documents',
+    initialState,
+    reducers: {
+        fetchDocuments(state) {
+            state.loading = true;
+            state.error = null;
+            state.documents = [];
+        },
+        fetchDocumentsSuccess(state, action: PayloadAction<DocumentItem[]>) {
+            state.loading = false;
+            state.documents = action.payload;
+            state.error = null;
+        },
+        fetchDocumentsError(state, action: PayloadAction<string>) {
+            state.loading = false;
+            state.documents = [];
+            state.error = action.payload;
+        }
     }
-}
-
-const store = configureStore({
-    reducer: documentsReducer,
 });
 
+export const { fetchDocuments, fetchDocumentsSuccess, fetchDocumentsError } = documentsSlice.actions;
 
-export default store
+const store = configureStore({
+    reducer: documentsSlice.reducer,
+});
+
+export default store;
