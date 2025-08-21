@@ -4,7 +4,9 @@ import styles from './Toolbar.module.scss'
 import menuButton from "../../assets/img/menu-button.png"
 import ToolbarInfo from './ToolbarInfo/ToolbarInfo';
 import ToolbarActions from './ToolbarActions/ToolbarActions';
-// import { useClickOutside } from '../../hooks/useClickOutside';
+import { useSelector } from 'react-redux';
+import { inMenuItems } from '../../store';
+import ToolbarIcon from './ToolbarIcon/ToolbarIcon';
 
 type Props = {}
 
@@ -12,6 +14,8 @@ function Header({ }: Props) {
 
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const menuRef = useRef<HTMLDivElement | null>(null);
+
+    const inMenu = useSelector(inMenuItems)
 
     function handleOpen() {
         setIsOpen(prev => !prev);
@@ -27,7 +31,13 @@ function Header({ }: Props) {
                         <div onClick={handleOpen} className={`${styles.menu} icon`} title='Пуск'>
                             <img src={menuButton} alt="" />
                         </div>
-                        <div className={styles.toolbar__opened}></div>
+                        <div className={styles.toolbar__opened}>
+                            {/* вывод иконок блокнота*/}
+                            {inMenu.map((el, i) => (
+                                <ToolbarIcon key={i} type="notepad" inMenu={el.inMenu} />
+                            ))}
+                            {/* вывод иконок блокнота */}
+                        </div>
                     </div>
                     <div className={styles.toolbar__right}>
                         <ToolbarActions />

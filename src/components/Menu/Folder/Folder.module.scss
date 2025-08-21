@@ -26,12 +26,27 @@
     transition: all .1s;
     user-select: none;
     box-sizing: border-box;
+    position: relative;
 
 
 }
 
-.menu__wrap:hover {
-    background: vars.$icon-hover;
+
+.menu__wrap::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--borderGradient, transparent);
+    -webkit-mask:
+        linear-gradient(rgba(255, 255, 255, 0.7) 0 0) content-box,
+        linear-gradient(rgba(255, 255, 255, 0.7) 0 0);
+    -webkit-mask-composite: subtract;
+    mask:
+        linear-gradient(rgba(255, 255, 255, 0.7) 0 0) content-box,
+        linear-gradient(rgba(255, 255, 255, 0.7) 0 0);
+    mask-composite: subtract;
+    padding: 1px;
+    pointer-events: none;
 }
 
 .menu__wrap:active .menu__icon {
@@ -53,7 +68,7 @@
 }
 
 .menu__icon img {
-    width: 25px;
+    height: 30px;
 }
 
 .menu__name {

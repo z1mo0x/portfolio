@@ -1,12 +1,25 @@
 import styles from './Menu.module.scss'
 import FolderItems from './Folder/FolderItems';
+import { useSelector } from 'react-redux';
+import type { DocumentState } from '../../store';
+import { useMemo } from 'react';
+import MenuIcons from './MenuIcons/MenuIcons';
 
 type Props = {
     open: boolean;
     ref: React.RefObject<HTMLDivElement | null>;
 }
 
+
 function Menu({ open, ref }: Props) {
+
+    const notepadItems = useSelector((state: DocumentState) => state.documents)
+
+    const notepadIcons = useMemo(() =>
+        notepadItems.map((doc, i) => (
+            <MenuIcons key={i} type='notepad' name={doc.name} />
+        )), [notepadItems]
+    )
 
     return (
         <>
@@ -16,10 +29,7 @@ function Menu({ open, ref }: Props) {
                     </div>
                 </div>
                 <div className={`${styles.menu__items}`}>
-                    <FolderItems isOpen={open} />
-                    <FolderItems isOpen={open} />
-                    <FolderItems isOpen={open} />
-                    <FolderItems isOpen={open} />
+                    {notepadIcons}
                     <FolderItems isOpen={open} />
                 </div>
             </div >

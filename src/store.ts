@@ -1,4 +1,4 @@
-import { configureStore, createSlice, type PayloadAction } from "@reduxjs/toolkit";
+import { configureStore, createSelector, createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import { documentsDefault } from "./assets/scripts/documentsItems";
 
 export interface DocumentItem {
@@ -6,6 +6,7 @@ export interface DocumentItem {
     name: string;
     text: string;
     baseActive?: boolean | undefined;
+    inMenu: boolean;
 }
 
 export interface DocumentState {
@@ -17,10 +18,9 @@ export interface DocumentState {
 const initialState: DocumentState = {
     documents: documentsDefault,
     loading: false,
-    error: null
+    error: null,
 };
 
-// Создаем срез с помощью createSlice
 const documentsSlice = createSlice({
     name: 'documents',
     initialState,
@@ -39,11 +39,28 @@ const documentsSlice = createSlice({
             state.loading = false;
             state.documents = [];
             state.error = action.payload;
+        },
+        setDocumentMenu(state, action: PayloadAction<number>) {
+            const document = state.documents.find(doc => doc.id === action.payload);
+            if (document) {
+                document.inMenu = true;
+            }
+        },
+        unsetDocumentMenu(state, action: PayloadAction<number>) {
+            const document = state.documents.find(doc => doc.id === action.payload);
+            if (document) {
+                document.inMenu = false;
+            }
         }
     }
 });
 
-export const { fetchDocuments, fetchDocumentsSuccess, fetchDocumentsError } = documentsSlice.actions;
+export const inMenuItems = createSelector(
+    (state: DocumentState) => state.documents,
+    docs => docs.filter(doc => doc.inMenu === true)
+)
+
+export const { fetchDocuments, fetchDocumentsSuccess, fetchDocumentsError, setDocumentMenu, unsetDocumentMenu } = documentsSlice.actions;
 
 const store = configureStore({
     reducer: documentsSlice.reducer,

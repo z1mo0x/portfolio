@@ -9,8 +9,8 @@ type WindowProps = {
     children: React.ReactNode,
     isOpen: boolean,
     setIsOpen: (isOpen: boolean) => void,
-    zIndex: number,
-    setZIndex: React.Dispatch<React.SetStateAction<number>>,
+    zIndex?: number,
+    setZIndex?: React.Dispatch<React.SetStateAction<number>>,
 }
 
 function Notepad({ title, children, isOpen, setIsOpen, zIndex, setZIndex }: WindowProps) {
@@ -20,7 +20,7 @@ function Notepad({ title, children, isOpen, setIsOpen, zIndex, setZIndex }: Wind
     // const [notepadSelected, setNotepadSelected] = useState<HTMLDivElement | null>(null);
 
     useEffect(() => {
-        if (notepadRef.current !== null) {
+        if (notepadRef.current && zIndex && setZIndex) {
             // setNotepadSelected(notepadRef.current);
             setZIndex(prev => prev + 1)
             notepadRef.current.style.zIndex = `${zIndex}`
@@ -29,7 +29,7 @@ function Notepad({ title, children, isOpen, setIsOpen, zIndex, setZIndex }: Wind
 
     useEffect(() => {
         const handleClick = () => {
-            if (notepadRef.current) {
+            if (notepadRef.current && setZIndex) {
                 setZIndex(prev => prev + 1);
                 notepadRef.current.style.zIndex = `${zIndex}`;
             }

@@ -1,7 +1,6 @@
 @use '../../index.scss' as vars;
 
 .toolbar {
-
     height: 45px;
     bottom: 0;
     left: 0;
@@ -40,4 +39,21 @@
 .toolbar__right {
     display: flex;
     gap: 1px;
+}
+
+.toolbar__opened {
+    display: flex;
+    gap: 1px;
+}
+
+.toolbar__icon {
+    width: 48px;
+    height: 45px;
+    overflow: hidden;
+}
+
+.toolbar__icon:hover {}
+
+.toolbar__icon img {
+    height: 35px
 }

@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import folder from "../../../assets/img/folder.svg"
 import styles from './Folder.module.scss'
+import useHoverFile from "../../../hooks/useHoverFile";
 
 type FolderItemsProps = {
     isOpen: boolean;
@@ -9,6 +10,7 @@ type FolderItemsProps = {
 function FolderItems({ isOpen }: FolderItemsProps) {
 
     const [isFolderOpen, setIsFolderOpen] = useState(false);
+    const folderRef = useRef<HTMLDivElement | null>(null);
 
     function handleFolder() {
         if (!isFolderOpen) {
@@ -18,9 +20,13 @@ function FolderItems({ isOpen }: FolderItemsProps) {
             setIsFolderOpen(false);
         }
     }
+
+
+    useHoverFile(folderRef);
+
     return (
         <div className={`${styles.menu__item} ${styles.menu__folder}`}>
-            <div onClick={handleFolder} className={`${styles.menu__wrap} ${isOpen ? styles.active : ''}`}>
+            <div ref={folderRef} onClick={handleFolder} className={`${styles.menu__wrap} ${isOpen ? styles.active : ''}`}>
                 <div className={styles.menu__icon}>
                     <img src={folder} alt="Иконка папки" />
                 </div>
