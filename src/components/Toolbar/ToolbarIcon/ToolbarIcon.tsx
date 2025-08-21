@@ -1,6 +1,5 @@
 import styles from './ToolbarIcon.module.scss'
 import textDocumentIcon from '../../../assets/img/text-file.svg'
-import { useEffect } from 'react';
 
 type ToolbarIconProps = {
     type: string,

@@ -3,8 +3,8 @@ import textDocumentIcon from '../../../assets/img/text-file.svg'
 import { useEffect, useRef, useState } from 'react';
 import Notepad from '../../Notepad/Notepad';
 import useOpenFile from '../../../hooks/useOpenFile';
-import { useDispatch, useSelector } from 'react-redux';
-import { setDocumentMenu, type DocumentState, unsetDocumentMenu } from '../../../store';
+import { useDispatch } from 'react-redux';
+import { setDocumentMenu, unsetDocumentMenu } from '../../../store';
 
 type TextDocumentProps = {
     fileName: string,

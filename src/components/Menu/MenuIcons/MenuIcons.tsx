@@ -1,6 +1,6 @@
 import styles from '../Menu.module.scss';
 import textDocumentIcon from '../../../assets/img/text-file.svg';
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import useHoverFile from '../../../hooks/useHoverFile';
 
 type MenuIconsProps = {
@@ -8,7 +8,7 @@ type MenuIconsProps = {
     name: string;
 };
 
-function MenuIcons({ type, name }: MenuIconsProps) {
+function MenuIcons({ name }: MenuIconsProps) {
     const iconRef = useRef<HTMLDivElement>(null);
 
     useHoverFile(iconRef);
