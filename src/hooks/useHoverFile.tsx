@@ -10,7 +10,7 @@ export default function useHoverFile(iconRef: React.RefObject<HTMLDivElement | n
             const rect = el.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
-            const gradient = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.25) 0%, transparent 80%)`;
+            const gradient = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.25) 0%, transparent 90%)`;
 
             // фон для самого ли
             el.style.background = gradient;

@@ -5,7 +5,6 @@ export default function handleMouseDown(event: React.MouseEvent<HTMLDivElement>,
     if (isExpanded) {
         setIsExpanded(false);
     }
-
     else {
         const target = event.currentTarget.closest(`.${window}`) as HTMLElement;
 
@@ -14,7 +13,6 @@ export default function handleMouseDown(event: React.MouseEvent<HTMLDivElement>,
 
         const handleMouseMove = (event: MouseEvent) => {
             target.style.position = 'absolute';
-            // target.style.zIndex = '21';
             target.style.left = `${event.clientX - offsetX}px`;
             target.style.top = `${event.clientY - offsetY}px`;
         };
@@ -22,7 +20,6 @@ export default function handleMouseDown(event: React.MouseEvent<HTMLDivElement>,
         const handleMouseUp = () => {
             target.removeEventListener('mousemove', handleMouseMove);
             target.removeEventListener('mouseup', handleMouseUp);
-            // target.style.zIndex = '20';
         };
 
         target.addEventListener('mousemove', handleMouseMove);
