@@ -9,7 +9,7 @@ export const documentsDefault: DocumentItem[] = [
     },
     {
         id: 2,
-        name: "Важно к прочтению",
+        name: "Важно к прочтению.txt",
         text: `На данный момент сайт в разработке. Последняя реализация - добавлен Redux
 
 Что предстоит сделать в ближайшее время:
@@ -28,6 +28,8 @@ export const documentsDefault: DocumentItem[] = [
 4. Drag-and-drop файлов
 5. "Ручки" для resize (осталось написать функцию)
 6. Подключен Redux для хранения файлов
+7. Новые ховеры в меню "Пуск"
+8. Отображение открытых файлов в панели задач (пока не доделано)
 `,
         baseActive: true,
         inMenu: true
